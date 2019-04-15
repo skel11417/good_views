@@ -8,7 +8,7 @@ class CreateMovies < ActiveRecord::Migration[5.2]
       t.string :poster
       t.string :actors
       t.string :imdb_id
-      t.response :boolean
+      t.boolean :response
       t.timestamps
     end
   end
