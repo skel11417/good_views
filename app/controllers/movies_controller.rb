@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
       render json: movie
     else
       base_url = 'http://www.omdbapi.com/'
-      api_key = "replace this"
+      api_key = Rails.application.credentials.omdb_api_key
       url = base_url + "?apikey=" + api_key + "&t=" + title
       response = HTTParty.get(url)
       if response.parsed_response["Response"] == "True"
