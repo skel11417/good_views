@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     title = params[:title]
-    movie = Movie.find_by(title: title)
+    movie = Movie.find_by(title: title.titleize)
     if movie
       render json: movie
     else
@@ -10,7 +10,6 @@ class MoviesController < ApplicationController
       url = base_url + "?apikey=" + api_key + "&t=" + title
       response = HTTParty.get(url)
       if response.parsed_response["Response"] == "True"
-        byebug
         movie = Movie.create_from_omdb(response)
         render json: movie
       else
