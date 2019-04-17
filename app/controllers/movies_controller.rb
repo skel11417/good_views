@@ -6,8 +6,8 @@ class MoviesController < ApplicationController
       render json: movie
     else
       base_url = 'http://www.omdbapi.com/'
-      api_key = Rails.application.credentials.omdb_api_key
-      url = base_url + "?apikey=" + api_key + "&i=" + imdb_id
+      # api_key = Rails.application.credentials.omdb_api_key
+      url = base_url + "?apikey=ebc885aa" + "&i=" + imdb_id
       response = HTTParty.get(url)
       if response.parsed_response["Response"] == "True"
         movie = Movie.create_from_omdb(response)
@@ -21,12 +21,13 @@ class MoviesController < ApplicationController
   def index
     title = params[:title]
     base_url = 'http://www.omdbapi.com/'
-    api_key = Rails.application.credentials.omdb_api_key
-    url = base_url + "?apikey=" + api_key + "&s=" + title + "&type=movie"
+    # api_key = Rails.application.credentials.omdb_api_key
+    url = base_url + "?apikey=ebc885aa" + "&s=" + title + "&type=movie"
     response = HTTParty.get(url)
     if response.parsed_response["Response"] == "True"
-      # turn this into something we can use
-      render json: response
+      movies = response.parsed_response["Search"]
+      filtered_movies = movies.select{ |m| m["Poster"] != "N/A" }
+      render json: filtered_movies
     end
   end
 
