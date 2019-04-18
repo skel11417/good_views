@@ -16,4 +16,13 @@ class Movie < ApplicationRecord
     )
     return m
   end
+
+  def average_review
+    if self.reviews.length > 0
+      all_reviews = self.reviews.map {|review| review.rating}
+      return all_reviews.inject{ |sum, el| sum + el }.to_f / all_reviews.size
+    else
+      return false
+    end
+  end
 end

@@ -17,6 +17,10 @@ class MoviesController < ApplicationController
       end
     end
   end
+  # returns average rating
+  def average_rating
+
+  end
 
   def index
     title = params[:title]

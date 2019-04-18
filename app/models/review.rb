@@ -5,4 +5,8 @@ class Review < ApplicationRecord
   def self.recent_reviews
     Review.all.reverse
   end
+
+  def average_review
+
+  end
 end
