@@ -8,5 +8,11 @@ class UsersController < ApplicationController
       render json: user.movies
     end
   end
-  
+
+  def show
+      user = User.find(1)
+      if params[:favorites]
+        render json: user.favorites
+      end
+  end
 end

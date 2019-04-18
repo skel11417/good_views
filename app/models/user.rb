@@ -7,6 +7,14 @@ class User < ApplicationRecord
   end
 
   def last_rated_movies
-    self.movies.reverse[0..5]
+    self.reviews.reverse[0..5]
   end
+
+  def favorites
+    self.reviews.select{ |r| r.rank != nil}
+  end
+
+  # def user_favorite_movies
+  #   self.favorites.map { |f| f.movie }
+  # end
 end
