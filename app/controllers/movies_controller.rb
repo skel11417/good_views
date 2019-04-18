@@ -17,9 +17,18 @@ class MoviesController < ApplicationController
       end
     end
   end
-  # returns average rating
-  def average_rating
 
+  # returns JSON object of imdb_ids and average_ratings
+  def average_rating
+    ids = params[:ids]
+    response_hash = {}
+    ids.each do |id|
+      movie = Movie.find_by(imdb_id: id)
+      if movie
+        response_hash[id] = movie.average_rating
+      end
+    end
+    render json: response_hash
   end
 
   def index
