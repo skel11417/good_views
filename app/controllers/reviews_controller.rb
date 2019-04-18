@@ -5,6 +5,11 @@ class ReviewsController < ApplicationController
     render json: review
   end
 
+  def index
+    reviews = Review.recent_reviews
+    render json: reviews
+  end
+
   def update
     review = Review.find(params[:id])
     review.update(review_params)
