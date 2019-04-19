@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  include FakeReview
   has_many :reviews
   has_many :users, through: :reviews
 
@@ -24,5 +25,17 @@ class Movie < ApplicationRecord
     else
       return false
     end
+  end
+
+  def auto_review
+    user = User.all.sample
+    puts user
+    fake_review = self.fake_review
+    content = fake_review[:content]
+    rating = fake_review[:rating]
+    puts rating
+    puts content
+    r = Review.create(user_id: user.id, movie_id: self.id, content: content, rating: rating)
+    puts r
   end
 end

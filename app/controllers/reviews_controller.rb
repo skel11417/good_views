@@ -5,6 +5,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    # create a new review on each page load
+    Movie.all.sample.auto_review
     reviews = Review.recent_reviews
     render json: reviews
   end

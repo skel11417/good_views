@@ -6,15 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts "Destroying all users"
-User.destroy_all
-puts "Destroying all reviews"
-Review.destroy_all
-puts "Destroying all movies"
-Movie.destroy_all
+# puts "Destroying all users"
+# User.destroy_all
+# puts "Destroying all reviews"
+# Review.destroy_all
+
 
 # main user
-User.create({name: 'Sean'})
+# User.create({name: 'Sean'})
 
 username = Faker::Internet.username
 name_faker = Faker::Name

@@ -6,7 +6,4 @@ class Review < ApplicationRecord
     Review.all.reverse
   end
 
-  def average_review
-
-  end
 end
