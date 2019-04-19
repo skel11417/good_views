@@ -11,8 +11,10 @@ class UsersController < ApplicationController
 
   def show
       user = User.find(1)
-      if params[:favorites]
+      if params[:favorites] === "all"
         render json: user.favorites
+      elsif params[:favorites] === "last"
+        render json: user.last_favorite
       end
   end
 end
