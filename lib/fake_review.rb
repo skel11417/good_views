@@ -13,7 +13,7 @@ module FakeReview
   end
 
   def positive
-    ["This is awesome.", "Amazing.", "An Unsurpassed masterpiece.", "It changed my life", "The acting is so good", "The cinematography is breathtaking.", "More people should know about this movie.", "One of my favorites ever.", "BEST MOVIE EVER", "Truly a work of art.", "They don't make them like this anymore.", "Stellar.", "Loved it."]
+    ["This is awesome.", "Amazing.", "An Unsurpassed masterpiece.", "It changed my life.", "The acting is so good.", "The cinematography is breathtaking.", "More people should know about this movie.", "One of my favorites ever.", "BEST MOVIE EVER!", "Truly a work of art.", "They don't make them like this anymore.", "Stellar.", "Loved it."]
   end
 
   def negative
