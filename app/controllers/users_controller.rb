@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    user = User.find(1)
+    user = User.first
     if params[:recent]
       render json: user.last_rated_movies
     else
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      user = User.find(1)
+      user = User.first
       if params[:favorites] === "all"
         render json: user.favorites
       elsif params[:favorites] === "last"
