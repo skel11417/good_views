@@ -24,7 +24,7 @@ class MoviesController < ApplicationController
     response_hash = {}
     ids.each do |id|
       movie = Movie.find_by(imdb_id: id)
-      if movie
+      if movie && movie.average_rating
         response_hash[id] = movie.average_rating
       end
     end
